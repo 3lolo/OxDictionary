@@ -24,7 +24,7 @@ abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel<*>>
     abstract fun getLayoutId(): Int
 
     override fun onAttach(context: Context?) {
-        AndroidSupportInjection.inject(this);
+        AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
 
@@ -37,12 +37,14 @@ abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel<*>>
         mViewDataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
         mRootView = mViewDataBinding.root
         performDataBinding(mViewDataBinding)
+        attachFragmentViews(mRootView)
+        initFragmentViews(savedInstanceState)
         return mRootView
     }
 
     abstract fun performDataBinding(databinding: B)
 
-    fun attachFragmentViews(view: View?) {
+    open fun attachFragmentViews(view: View?) {
 
     }
 

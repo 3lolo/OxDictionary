@@ -5,9 +5,10 @@ import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
 
-@Subcomponent(modules = [DNavigatorModule::class])
+@Subcomponent(modules = [DNavigatorModule::class,
+    DNavigatorFragmentProvider::class])
 interface DNavigatorComponent : AndroidInjector<DNavigatorActivity> {
 
     @Subcomponent.Builder
-    abstract class Builder: AndroidInjector.Builder<DNavigatorActivity>()
+    abstract class Builder : AndroidInjector.Builder<DNavigatorActivity>()
 }

@@ -1,0 +1,24 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.pro.anat.oxdictionary.presentation.module_dictionary.navigator.DNavigatorViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.module_dictionary.navigator.DNavigatorActivity">
+
+        <fragment
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

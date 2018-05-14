@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.pro.anat.oxdictionary.R" />
+
+        <variable
+            name="vm"
+            type="com.pro.anat.oxdictionary.presentation.module_dictionary.home.HomeVM" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/nav_to_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="go to search"
+            bind:navigateTo="@{R.id.action_homeView_to_searchView}" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
