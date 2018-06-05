@@ -5,7 +5,7 @@
 
         <variable
             name="vm"
-            type="com.pro.anat.oxdictionary.presentation.module_dictionary.info.InfoVM" />
+            type="com.pro.anat.oxdictionary.presentation.module_dictionary.info.TranscriptionVM" />
     </data>
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

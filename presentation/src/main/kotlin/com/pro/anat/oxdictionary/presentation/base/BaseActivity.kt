@@ -13,7 +13,7 @@ import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
 
-abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel<*>>
+abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>
     : AppCompatActivity(), BaseView, HasSupportFragmentInjector {
 
     @Inject

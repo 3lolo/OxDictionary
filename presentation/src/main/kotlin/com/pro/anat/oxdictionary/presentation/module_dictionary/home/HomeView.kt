@@ -16,5 +16,7 @@ class HomeView : BaseFragmentView<FragmentHomeBinding, HomeVM>() {
     }
 
     override fun attachFragmentViews(view: View?) {
+//        var home  = ViewModelProviders.of(this).get(HomeVM::class.java)
+//        home = home;
     }
 }

@@ -29,6 +29,6 @@
     </fragment>
     <fragment
         android:id="@+id/infoVeiw"
-        android:name="com.pro.anat.oxdictionary.presentation.module_dictionary.info.InfoVeiw"
+        android:name="com.pro.anat.oxdictionary.presentation.module_dictionary.info.TranscriptionView"
         android:label="InfoVeiw" />
 </navigation>

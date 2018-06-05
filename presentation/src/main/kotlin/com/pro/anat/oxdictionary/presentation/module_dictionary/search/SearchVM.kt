@@ -10,7 +10,7 @@ import com.pro.anat.oxdictionary.presentation.module_dictionary.search.delegates
 import javax.inject.Inject
 
 
-class SearchVM @Inject constructor() : BaseViewModel<SearchView>() {
+class SearchVM @Inject constructor() : BaseViewModel() {
 
 
     private var mItemClick: OnRecyclerItemClick<Field> = object : OnRecyclerItemClick<Field> {

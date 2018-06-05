@@ -12,13 +12,13 @@ import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
-abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel<*>>
+abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel>
     : android.support.v4.app.Fragment(), BaseView {
 
     @Inject
-    lateinit var mViewModel: VM
-    private lateinit var mViewDataBinding: B
-    private var mRootView: View? = null
+    protected lateinit var mViewModel: VM
+    protected lateinit var mViewDataBinding: B
+    protected var mRootView: View? = null
 
     @LayoutRes
     abstract fun getLayoutId(): Int
@@ -30,7 +30,7 @@ abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel<*>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lifecycle.addObserver(mViewModel)
+        mViewModel?.let { lifecycle.addObserver(mViewModel!!) }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -54,7 +54,7 @@ abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel<*>>
 
     override fun onDestroy() {
         super.onDestroy()
-        lifecycle.removeObserver(mViewModel)
+        mViewModel?.let { lifecycle.removeObserver(it) }
     }
 
 }
