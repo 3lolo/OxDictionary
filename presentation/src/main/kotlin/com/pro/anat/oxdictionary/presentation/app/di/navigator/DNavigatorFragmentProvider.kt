@@ -2,8 +2,10 @@ package com.pro.anat.oxdictionary.presentation.app.di.navigator
 
 import android.support.v4.app.Fragment
 import com.pro.anat.oxdictionary.presentation.app.di.home.HomeComponent
+import com.pro.anat.oxdictionary.presentation.app.di.search.InfoComponent
 import com.pro.anat.oxdictionary.presentation.app.di.search.SearchComponent
 import com.pro.anat.oxdictionary.presentation.module_dictionary.home.HomeView
+import com.pro.anat.oxdictionary.presentation.module_dictionary.info.InfoView
 import com.pro.anat.oxdictionary.presentation.module_dictionary.search.SearchView
 import dagger.Binds
 import dagger.Module
@@ -26,6 +28,11 @@ abstract class DNavigatorFragmentProvider {
     @IntoMap
     @FragmentKey(SearchView::class)
     internal abstract fun bindSearchView(builder: SearchComponent.Builder): AndroidInjector.Factory<out Fragment>
+
+    @Binds
+    @IntoMap
+    @FragmentKey(InfoView::class)
+    internal abstract fun bindInfoView(builder: InfoComponent.Builder): AndroidInjector.Factory<out Fragment>
 
 }
 

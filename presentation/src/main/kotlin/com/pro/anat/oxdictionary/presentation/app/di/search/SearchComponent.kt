@@ -5,7 +5,7 @@ import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
 
-@Subcomponent(modules = [SearchModule::class])
+@Subcomponent(modules = [InfoModule::class])
 interface SearchComponent : AndroidInjector<SearchView> {
 
     @Subcomponent.Builder

@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.annotation.LayoutRes
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +14,12 @@ import javax.inject.Inject
 
 
 abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel>
-    : android.support.v4.app.Fragment(), BaseView {
+    : Fragment(), BaseView {
 
     @Inject
     protected lateinit var mViewModel: VM
-    protected lateinit var mViewDataBinding: B
-    protected var mRootView: View? = null
+    private lateinit var mViewDataBinding: B
+    private var mRootView: View? = null
 
     @LayoutRes
     abstract fun getLayoutId(): Int
@@ -30,7 +31,7 @@ abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mViewModel?.let { lifecycle.addObserver(mViewModel!!) }
+        lifecycle.addObserver(mViewModel)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,17 +45,17 @@ abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel>
 
     abstract fun performDataBinding(databinding: B)
 
-    open fun attachFragmentViews(view: View?) {
+    protected open fun attachFragmentViews(view: View?) {
 
     }
 
-    fun initFragmentViews(savedInstanceState: Bundle?) {
+    protected open fun initFragmentViews(savedInstanceState: Bundle?) {
 
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mViewModel?.let { lifecycle.removeObserver(it) }
+        lifecycle.removeObserver(mViewModel)
     }
 
 }

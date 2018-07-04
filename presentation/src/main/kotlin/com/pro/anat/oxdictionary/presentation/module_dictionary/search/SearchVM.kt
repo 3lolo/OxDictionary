@@ -1,5 +1,6 @@
 package com.pro.anat.oxdictionary.presentation.module_dictionary.search
 
+import android.arch.lifecycle.MutableLiveData
 import com.pro.anat.oxdictionary.presentation.base.BaseViewModel
 import com.pro.anat.oxdictionary.presentation.base.recycler.ListConfig
 import com.pro.anat.oxdictionary.presentation.base.recycler.ListDelegateAdapter
@@ -11,7 +12,7 @@ import javax.inject.Inject
 
 
 class SearchVM @Inject constructor() : BaseViewModel() {
-
+    var navToTranscription: MutableLiveData<Transcription> = MutableLiveData()
 
     private var mItemClick: OnRecyclerItemClick<Field> = object : OnRecyclerItemClick<Field> {
         override fun onItemClick(model: Field, position: Int) {
@@ -33,7 +34,7 @@ class SearchVM @Inject constructor() : BaseViewModel() {
     }
 
     private fun actionClick(model: Field, position: Int) {
-
+        navToTranscription.value = model as Transcription?
     }
 
     fun actionSearch(query: String) {

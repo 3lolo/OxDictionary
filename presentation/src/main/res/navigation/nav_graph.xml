@@ -13,22 +13,24 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/homeView" />
     </fragment>
+    <fragment
+        android:id="@+id/infoView"
+        android:name="com.pro.anat.oxdictionary.presentation.module_dictionary.info.InfoView"
+        android:label="InfoView" />
     <fragment
         android:id="@+id/searchView"
         android:name="com.pro.anat.oxdictionary.presentation.module_dictionary.search.SearchView"
-        android:label="SearchView" >
+        android:label="SearchView">
         <action
-            android:id="@+id/action_searchView_to_infoVeiw"
-            app:destination="@id/infoVeiw"
+            android:id="@+id/action_searchView_to_infoView"
+            app:destination="@id/infoView"
             app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_exit_anim" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/searchView" />
     </fragment>
-    <fragment
-        android:id="@+id/infoVeiw"
-        android:name="com.pro.anat.oxdictionary.presentation.module_dictionary.info.TranscriptionView"
-        android:label="InfoVeiw" />
 </navigation>
