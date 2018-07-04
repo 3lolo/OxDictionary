@@ -7,7 +7,8 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module(subcomponents = [DNavigatorComponent::class])
+@Module(includes = [ViewModelProviderModule::class],
+        subcomponents = [DNavigatorComponent::class])
 class AppModule {
     @Provides
     @Singleton

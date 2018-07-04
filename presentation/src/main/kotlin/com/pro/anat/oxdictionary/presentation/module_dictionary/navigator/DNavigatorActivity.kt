@@ -8,7 +8,7 @@ import com.pro.anat.oxdictionary.presentation.base.BaseActivity
 import com.pro.anat.oxdictionary.presentation.base.SingleLiveEvent
 
 
-class DNavigatorActivity : BaseActivity<ActivityMainBinding, DNavigatorViewModel>() {
+class DNavigatorActivity : BaseActivity<ActivityMainBinding, NavigatorVM>() {
 
     var networkStatus: SingleLiveEvent<Boolean> = SingleLiveEvent()
 

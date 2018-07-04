@@ -10,13 +10,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dagger.android.support.AndroidSupportInjection
-import javax.inject.Inject
 
 
 abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel>
     : Fragment(), BaseView {
 
-    @Inject
     protected lateinit var mViewModel: VM
     private lateinit var mViewDataBinding: B
     private var mRootView: View? = null
@@ -31,6 +29,7 @@ abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        provideViewModel()
         lifecycle.addObserver(mViewModel)
     }
 
@@ -42,6 +41,9 @@ abstract class BaseFragmentView<B : ViewDataBinding, VM : BaseViewModel>
         initFragmentViews(savedInstanceState)
         return mRootView
     }
+
+    abstract fun provideViewModel()
+
 
     abstract fun performDataBinding(databinding: B)
 
